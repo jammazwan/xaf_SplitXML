@@ -46,11 +46,11 @@ Like xtokenized, and for the same reasons, this was not attempted in this exampl
  
 Hah! String.split() for XML??? Seems ridiculous, huh? No, not proposing that you start using a regex...
  
-A typical use case might be, where each line of a file is an entire chunk of standalone xml. So you are really just using String split to split up a file into separate lines, then processing each line as an xml message.
+A typical use case might be, where each line of a file is an entire chunk of standalone xml. See [employees.xml](https://github.com/jammazwan/jammazwan.shared/blob/master/src/main/resources/data/employees.xml) So you are really just using String split to split up a file into separate lines, then processing each line as an xml message.
 
 To see this approach in action go to [xaj_SplitFile](https://github.com/jammazwan/xaj_SplitFile)
 
-There are other approaches to solving this same problem, such as reading in the a file as a list with xml root options. They are not covered here, or at least not yet, primarily because I haven't figured out how to get one working yet.
+There are other approaches to solving this same problem, such as reading in the a [file as a list with xml root options](https://github.com/jammazwan/jammazwan.shared/blob/master/src/main/resources/data/employees.xml). They are not covered here, or at least not yet, primarily because I haven't figured out how to get one working yet.
  
 ### Converting to List<MyObject> first
 
