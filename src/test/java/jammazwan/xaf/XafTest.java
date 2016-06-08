@@ -26,9 +26,13 @@ public class XafTest extends CamelSpringTestSupport {
 		MockEndpoint mock3 = getMockEndpoint("mock:assert3");
 		mock3.expectedMessageCount(1);
 		
+		MockEndpoint mock4 = getMockEndpoint("mock:assert4");
+		mock4.expectedMessageCount(25);
+		
 		mock1.assertIsSatisfied();
 		mock2.assertIsSatisfied();
 		mock3.assertIsSatisfied();
+		mock4.assertIsSatisfied();
 	}
 
 }
