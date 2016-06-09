@@ -6,6 +6,7 @@ public class XafRoutes extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
+		//XPATH
 		from("file://../jammazwan.shared/src/main/resources/data/xml/?noop=true&fileName=menu.xml")
 		.split(xpath("/menu/food")).to("mock:assert1");
 		
@@ -13,9 +14,13 @@ public class XafRoutes extends RouteBuilder {
 		.split(xpath("/CATALOG/CD/TITLE")).to("mock:assert2");
 		
 		from("file://../jammazwan.shared/src/main/resources/data/xml/?noop=true&fileName=manager.xml")
-		.split(xpath("//manager[@city]")).to("mock:assert3");
+		.split(xpath("//manager[@city]")).log("${body}").to("mock:assert3");
 		
+		//TOKENIZEXML
 		from("file://../jammazwan.shared/src/main/resources/data/xml/?noop=true&fileName=shop.xml")
-		.split(xpath("//*/employees/city")).log("${body}").to("mock:assert4");
+		.split().tokenizeXML("city").to("mock:assert4");
+		
+		from("file://../jammazwan.shared/src/main/resources/data/xml/?noop=true&fileName=employee.xml")
+		.split().tokenizeXML("city").log("${body}").to("mock:assert5");
 	}
 }

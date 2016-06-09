@@ -16,7 +16,7 @@ public class XafTest extends CamelSpringTestSupport {
 	}
 
 	@Test
-	public void testMockAsserts() throws Exception {
+	public void testXPath() throws Exception {
 		MockEndpoint mock1 = getMockEndpoint("mock:assert1");
 		mock1.expectedMessageCount(5);
 		
@@ -26,13 +26,23 @@ public class XafTest extends CamelSpringTestSupport {
 		MockEndpoint mock3 = getMockEndpoint("mock:assert3");
 		mock3.expectedMessageCount(1);
 		
-		MockEndpoint mock4 = getMockEndpoint("mock:assert4");
-		mock4.expectedMessageCount(25);
-		
 		mock1.assertIsSatisfied();
 		mock2.assertIsSatisfied();
 		mock3.assertIsSatisfied();
+	}
+
+
+	@Test
+	public void testTokenizeXML() throws Exception {
+		
+		MockEndpoint mock4 = getMockEndpoint("mock:assert4");
+		mock4.expectedMessageCount(25);
+		
+		MockEndpoint mock5 = getMockEndpoint("mock:assert5");
+		mock5.expectedMessageCount(1);
+
 		mock4.assertIsSatisfied();
+		mock5.assertIsSatisfied();
 	}
 
 }
